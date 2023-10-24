@@ -27,6 +27,13 @@ import people03 from "./people03.png";
 import invoice from "./invoice.svg";
 import payment from "./payment.svg";
 import analysis from "./analysis.svg";
+import invoiceForm from "./cellphonemockup-portrait.png";
+import invoiceForm01 from "./cellphonemockup01-portrait.png";
+import invoiceForm02 from "./cellphonemockup02-portrait.png";
+import invoiceForm03 from "./cellphonemockup03-portrait.png";
+import invoiceForm04 from "./cellphonemockup04-portrait.png";
+import leftArrow from "./left-arrow-backup-2-svgrepo-com.svg";
+import rightArrow from "./right-arrow-backup-2-svgrepo-com.svg";
 
 export {
   airbnb,
@@ -37,6 +44,13 @@ export {
   coinbase,
   dropbox,
   logo,
+  invoiceForm,
+  invoiceForm01,
+  invoiceForm02,
+  invoiceForm03,
+  invoiceForm04,
+  rightArrow,
+  leftArrow,
   logo2,
   payment,
   invoice,

@@ -104,6 +104,7 @@ export const stats = [
 
 export const footerLinks = [
   {
+    key: crypto.randomUUID(),
     title: "Useful Links",
     links: [
       {
@@ -129,6 +130,7 @@ export const footerLinks = [
     ],
   },
   {
+    key: crypto.randomUUID(),
     title: "Community",
     links: [
       {
@@ -154,6 +156,7 @@ export const footerLinks = [
     ],
   },
   {
+    key: crypto.randomUUID(),
     title: "Partner",
     links: [
       {

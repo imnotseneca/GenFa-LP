@@ -13,7 +13,7 @@ const CallToAction = () => {
         </p>
       </div>
       <div className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>
-        <Button />
+        <Button text={`Get a free trial now!`}/>
       </div>
     </section>
   );

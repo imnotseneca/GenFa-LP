@@ -29,15 +29,16 @@ const Business = () => {
   return (
     <section id="features" className={`${layout.section} sm:mt-0 lg:mt-[12em]`}>
       <div className={layout.sectionInfo}>
+        <p className={styles.paragraph} style={{textTransform: 'uppercase'}}>Know the benefits</p>
         <h2 className={styles.heading2}>
           We can handle <br className="sm:block hidden" /> your invoices records.
         </h2>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
         Imagine the convenience of having all your invoicing tasks centralized in one digital platform. GenFa not only expedites the process but also enhances accuracy. The intuitive UI makes it easy for businesses to navigate through various features, empowering them to focus on core activities.
         </p>
-        <Button styles="mt-10" />
+        <Button styles="mt-10" text="Start now!" />
       </div>
-      <div className={`${layout.sectionImg} flex-col`}>
+      <div className={`${layout.sectionImg} flex-col max-w-lg`}>
       {features.map((feature, index) => (
         <FeatureCard key={feature.id} {...feature} index={index} />
       ))}
