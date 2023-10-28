@@ -1,8 +1,27 @@
 import styles from "../style";
 import { discount, invoiceForm } from "../assets";
 import Button from "./Button";
+import { useState } from "react";
+import Modal from "./Modal";
+import {FaPaperPlane} from "react-icons/fa";
 
 const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleFormSubmit = (formData) => {
+    // Handle form submission logic here
+    console.log("Form submitted with data:", formData);
+    closeModal(); // Close the modal after submission (you can modify this as needed)
+  };
+
   return (
     <section
       id="home"
@@ -34,7 +53,11 @@ const Hero = () => {
           invoicing solution tailored for your business needs.
         </p>
         <div className="ss:flex md:mr-4 mr-0 w-full sm:w-8/12">
-          <Button styles="mt-10 w-full sm:w-8/12" text="Book a free discovery test" />
+          <Button
+            styles="mt-10 w-full sm:w-8/12"
+            text="Book a free discovery test"
+            onClick={openModal}
+          />
         </div>
       </div>
       <div
@@ -49,6 +72,65 @@ const Hero = () => {
         <div className="absolute z-[2] w-[80%] h-[85%] rounded-full bottom-40  white__gradient"></div>
         <div className="absolute z-[0] w-[50%] h-[50%] -right-40 top-20 blue__gradient"></div>
       </div>
+      {isModalOpen ? (
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <div className="p-4">
+            <h2 className="text-2xl font-bold mb-4">Intro Call</h2>
+            <p className="text-gray-600 mb-4">
+              {" "}
+              Thanks for your interest in <strong>GenFa</strong>! 100+ customers
+              trust our invoice processing capabilities.
+            </p>
+            <p className="text-gray-600 mb-4">
+              {" "}
+              Please share your company name and email with us and we will
+              contact you for more information!
+            </p>
+            <form
+              onSubmit={(e) => {
+                /* Handle form submission */
+              }}
+            >
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="input1"
+                  aria-required
+                >
+                  Company name: <span className="text-red-700">*</span>
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="input1"
+                  type="text"
+                  placeholder="Your company name"
+                  required
+                />
+              </div>
+
+              <div className="mb-6">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="input2"
+                >
+                  Email: <span className="text-red-700">*</span>
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="input2"
+                  type="email"
+                  placeholder="Your email"
+                />
+              </div>
+
+              <Button text={"Submit"} type="submit" width={"full"} icon={<FaPaperPlane />} />
+              
+            </form>
+          </div>
+        </Modal>
+      ) : (
+        ""
+      )}
     </section>
   );
 };

@@ -125,7 +125,11 @@
 }
 
 .blue__gradient {
-  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d766b 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(188, 165, 255, 0) 0%,
+    #214d766b 100%
+  );
   filter: blur(123px);
 }
 
@@ -137,4 +141,30 @@
 .white__gradient {
   background: rgba(255, 255, 255, 0.25);
   filter: blur(750px);
+}
+
+.close-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 8px; /* Add some padding to separate the button from the content */
+}
+
+.close-button {
+  cursor: pointer;
+  font-size: 22px; /* Adjust the font size as needed */
+  line-height: 1; /* Center the close symbol vertically */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }

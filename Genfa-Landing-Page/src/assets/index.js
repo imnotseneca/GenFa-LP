@@ -17,10 +17,10 @@ import google from "./google.svg";
 import apple from "./apple.svg";
 import arrowUp from "./arrow-up.svg";
 import discount from "./Discount.svg";
-import facebook from "./facebook.svg";
-import instagram from "./instagram.svg";
+import portfolio from "./portfolio-svgrepo-com.svg";
+import github from "./github-142-svgrepo-com.svg";
+import email from "./email-svgrepo-com.svg";
 import linkedin from "./linkedin.svg";
-import twitter from "./twitter.svg";
 import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
@@ -65,10 +65,10 @@ export {
   apple,
   arrowUp,
   discount,
-  facebook,
-  instagram,
+  github,
+  email,
   linkedin,
-  twitter,
+  portfolio,
   people01,
   people02,
   people03,
