@@ -56,7 +56,7 @@ function Carousel() {
   }, [currentIndex]);
 
   return (
-    <div className="block sm:flex flex-col justify-center items-center max-w-[1400px] w-full m-auto py-16 px-4 relative group">
+    <section id="product" className="block sm:flex flex-col justify-center items-center max-w-[1400px] w-full m-auto py-16 px-4 relative group sm:mt-0 lg:mt-[8em] lg:mb-[8em]">
       <p
         className={styles.paragraph}
         style={{ textTransform: "uppercase", textAlign: "center" }}
@@ -115,7 +115,7 @@ function Carousel() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

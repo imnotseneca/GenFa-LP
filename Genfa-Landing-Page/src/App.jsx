@@ -7,7 +7,7 @@ import {
   // Billing,
   Carousel,
   Testimonials,
-  Clients,
+  // Clients,
   CallToAction,
   Footer,
 } from "./components";
@@ -35,7 +35,7 @@ const App = () => {
           <Business />
           <Carousel />
           <Testimonials />
-          <Clients />
+          {/* <Clients /> */}
           <CallToAction />
           <Footer />
         </div>
