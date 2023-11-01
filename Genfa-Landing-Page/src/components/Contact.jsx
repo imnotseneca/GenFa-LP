@@ -13,7 +13,9 @@ const Contact = ({ closeModal }) => {
 
     try {
       // Show loading toast
-      const loadingToastId = toast.info("Submitting email...", { autoClose: false });
+      const loadingToastId = toast.info("Submitting email...", {
+        autoClose: false,
+      });
 
       const result = await emailjs.sendForm(
         import.meta.env.VITE_APP_SERVICE_ID,
@@ -86,6 +88,7 @@ const Contact = ({ closeModal }) => {
           rows="2"
           required
           placeholder="I want to try GenFa because..."
+          style={{ maxHeight: "60px", overflowY: "auto" }}
         ></textarea>
       </div>
 
