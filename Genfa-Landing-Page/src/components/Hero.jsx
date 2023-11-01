@@ -19,7 +19,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className="absolute z-[0] w-[50%] h-[50%] -right-40 top-20 blue__gradient"></div>
+      <div className="absolute z-[0] w-[50%] h-[50%] right-0 top-20 blue__gradient"></div>
 
       <section
         id="home"
