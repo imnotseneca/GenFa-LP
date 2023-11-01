@@ -2,7 +2,7 @@ import styles from "./style";
 import {
   Navbar,
   Hero,
-  Stats,
+  // Stats,
   Business,
   // Billing,
   Carousel,
@@ -31,7 +31,7 @@ const App = () => {
       {/* Hero ends */}
       <div className={` bg-primary ${styles.paddingX} ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
-          <Stats />
+          {/* <Stats /> */}
           <Business />
           <Carousel />
           <Testimonials />

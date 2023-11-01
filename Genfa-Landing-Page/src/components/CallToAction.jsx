@@ -2,7 +2,7 @@ import styles from "../style";
 import Button from "./Button";
 import { useState } from "react";
 import Modal from "./Modal";
-import { FaPaperPlane } from "react-icons/fa";
+import Contact from "./Contact";
 
 const CallToAction = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,12 +13,6 @@ const CallToAction = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-  };
-
-  const handleFormSubmit = (formData) => {
-    // Handle form submission logic here
-    console.log("Form submitted with data:", formData);
-    closeModal(); // Close the modal after submission (you can modify this as needed)
   };
 
   return (
@@ -49,50 +43,7 @@ const CallToAction = () => {
               Please share your company name and email with us and we will
               contact you for more information!
             </p>
-            <form
-              onSubmit={(e) => {
-                /* Handle form submission */
-              }}
-            >
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="input1"
-                  aria-required
-                >
-                  Company name: <span className="text-red-700">*</span>
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="input1"
-                  type="text"
-                  placeholder="Your company name"
-                  required
-                />
-              </div>
-
-              <div className="mb-6">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="input2"
-                >
-                  Email: <span className="text-red-700">*</span>
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="input2"
-                  type="email"
-                  placeholder="Your email"
-                />
-              </div>
-
-              <Button
-                text={"Submit"}
-                type="submit"
-                width={"full"}
-                icon={<FaPaperPlane />}
-              />
-            </form>
+            <Contact closeModal={closeModal} />
           </div>
         </Modal>
       ) : (
