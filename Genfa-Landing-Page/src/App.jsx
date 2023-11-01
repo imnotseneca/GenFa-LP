@@ -11,11 +11,25 @@ import {
   CallToAction,
   Footer,
 } from "./components";
+import { ToastContainer, Slide } from "react-toastify";
 
 const App = () => {
   return (
     /** Header starts */
     <div className="bg-primary w-full overflow-hidden">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Slide}
+      />
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <header className={`${styles.boxWidth}`}>
           <Navbar />

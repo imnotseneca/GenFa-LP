@@ -3,29 +3,40 @@ import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Button from "./Button";
 import { FaPaperPlane } from "react-icons/fa";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = ({ closeModal }) => {
   const form = useRef();
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
+    try {
+      // Show loading toast
+      const loadingToastId = toast.info("Submitting email...", { autoClose: false });
+
+      const result = await emailjs.sendForm(
         import.meta.env.VITE_APP_SERVICE_ID,
         import.meta.env.VITE_APP_TEMPLATE_ID,
         form.current,
         import.meta.env.VITE_APP_PUBLIC_ID
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
       );
-    closeModal(); // Close the modal after submission (you can modify this as needed)
+
+      // Remove the loading toast
+      toast.dismiss(loadingToastId);
+
+      if (result) {
+        toast.success("Email submitted successfully!");
+        closeModal(); // Close the modal after successful submission
+      } else {
+        toast.error("Failed to submit form. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("An error occurred. Please try again later.");
+    }
   };
+
   return (
     <form ref={form} onSubmit={handleFormSubmit}>
       <div className="mb-4">
@@ -72,7 +83,7 @@ const Contact = ({ closeModal }) => {
           name="message"
           id="input3"
           cols="35"
-          rows="3"
+          rows="2"
           required
           placeholder="I want to try GenFa because..."
         ></textarea>
