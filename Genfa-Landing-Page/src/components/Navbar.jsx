@@ -16,7 +16,7 @@ const Navbar = () => {
             key={index}
             className={`font-poppins font-normal cursor-pointer text-[16px] ${
               index === navLinks.length - 1 ? "mr-0" : "mr-10"
-            } text-white opacity-80 hover:opacity-100`}
+            } text-white hover:text-secondary`}
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
           </li>
@@ -41,7 +41,7 @@ const Navbar = () => {
                 key={index}
                 className={`font-poppins font-normal cursor-pointer text-[16px] ${
                   index === navLinks.length - 1 ? "mb-0" : "mb-4"
-                } text-white opacity-80 hover:opacity-100 focus:opacity-100`}
+                } text-white opacity-80 hover:text-secondary focus:opacity-100 focus:text-secondary`}
               >
                 <a href={`#${nav.id}`} className="">
                   {nav.title}

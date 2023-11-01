@@ -1,12 +1,15 @@
 import styles from "../style";
 import { discount, invoiceForm } from "../assets";
 import Button from "./Button";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Modal from "./Modal";
-import {FaPaperPlane} from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const form = useRef();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -16,9 +19,24 @@ const Hero = () => {
     setIsModalOpen(false);
   };
 
-  const handleFormSubmit = (formData) => {
-    // Handle form submission logic here
-    console.log("Form submitted with data:", formData);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_APP_SERVICE_ID,
+        import.meta.env.VITE_APP_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_APP_PUBLIC_ID
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     closeModal(); // Close the modal after submission (you can modify this as needed)
   };
 
@@ -86,11 +104,7 @@ const Hero = () => {
               Please share your company name and email with us and we will
               contact you for more information!
             </p>
-            <form
-              onSubmit={(e) => {
-                /* Handle form submission */
-              }}
-            >
+            <form ref={form} onSubmit={handleFormSubmit}>
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
@@ -103,6 +117,7 @@ const Hero = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="input1"
                   type="text"
+                  name="user_name"
                   placeholder="Your company name"
                   required
                 />
@@ -119,12 +134,33 @@ const Hero = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="input2"
                   type="email"
+                  name="user_email"
                   placeholder="Your email"
+                  required
                 />
+                <label
+                  className="block text-gray-700 text-sm font-bold mt-4 mb-2"
+                  htmlFor="input2"
+                >
+                  Message:
+                </label>
+                <textarea
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  name="message"
+                  id="input3"
+                  cols="35"
+                  rows="3"
+                  required
+                  placeholder="I want to try GenFa because..."
+                ></textarea>
               </div>
 
-              <Button text={"Submit"} type="submit" width={"full"} icon={<FaPaperPlane />} />
-              
+              <Button
+                text={"Submit"}
+                type="submit"
+                width={"full"}
+                icon={<FaPaperPlane />}
+              />
             </form>
           </div>
         </Modal>
